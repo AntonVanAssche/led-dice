@@ -41,7 +41,7 @@ void setup() {
   */
 int rollDice() {
    // Seed the random number generator if it hasn't been seeded yet.
-   // if (!randomIsSeeded) {
+   if (!randomIsSeeded) {
       // Calculate the seed.
       seed = ((millis() + analogRead(A0) / analogRead(A1) * analogRead(A2)) * 15485863) % 2038074743;
       Serial.println(seed);
@@ -49,8 +49,8 @@ int rollDice() {
       // Seed the random number generator.
       randomSeed(seed);
 
-   //    randomIsSeeded = true;
-   // }
+      randomIsSeeded = true;
+   }
 
    // Return a random number between 1 and 6.
    return 1 + random() % 6;
